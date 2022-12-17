@@ -17,8 +17,8 @@ var tempServicePort = tempServiceConfig["port"];
 
 //Precipitation
 var precipServiceConfig = servicesConfig.GetSection("Precipitation");
-var precipServiceHost = tempServiceConfig["Host"];
-var precipServicePort = tempServiceConfig["port"];
+var precipServiceHost = precipServiceConfig["Host"];
+var precipServicePort = precipServiceConfig["port"];
 
 var zipCodes = new List<string>
 {
@@ -104,6 +104,10 @@ void PostPrecip(int lowTemp, string zip, DateTime day, HttpClient prepicipitatio
                       $"Type: {precipitation.WeatherType} " +
                       $"Amount (in.): {precipitation.AmountInches}"
                      );
+    }
+    else
+    {
+        Console.WriteLine(precipResponse.ToString());
     }
 
 
